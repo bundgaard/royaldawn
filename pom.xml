@@ -12,6 +12,7 @@
         <module>spring-boot-starter-parent</module>
         <module>bank</module>
         <module>dokuu</module>
+        <module>dookuu</module>
     </modules>
 
     <properties>

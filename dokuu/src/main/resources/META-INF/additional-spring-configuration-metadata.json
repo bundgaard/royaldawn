@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "application.feed-url",
+      "type": "java.lang.String",
+      "description": "Description for application.feed-url."
+    }
+  ]
+}

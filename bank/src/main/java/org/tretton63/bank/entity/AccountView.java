@@ -14,7 +14,6 @@ public class AccountView {
     String accountName;
     int balance;
 
-
     public AccountView() {
     }
 
@@ -36,7 +35,6 @@ public class AccountView {
     public String getAccountName() {
         return accountName;
     }
-
 
     public void addAmount(int amount) {
         this.balance += amount;

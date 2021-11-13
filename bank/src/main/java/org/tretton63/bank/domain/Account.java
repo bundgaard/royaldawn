@@ -15,6 +15,9 @@ import org.tretton63.bank.coreapi.event.InsufficientFundsEvent;
 import org.tretton63.bank.coreapi.event.WithdrawedEvent;
 import org.tretton63.bank.coreapi.exceptions.InsufficientFundsException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
 @Aggregate
@@ -27,12 +30,16 @@ public class Account {
     private int balance;
     private String accountName;
 
+    private List<String> errors = new ArrayList<>();
+
+
+
     public Account() {
     }
 
     @CommandHandler
     public Account(CreateAccountCommand command) {
-        logger.info("received command {}", command);
+        logger.debug("received command {}", command);
         apply(new AccountCreatedEvent(
                 command.accountNumber(),
                 command.accountName(),
@@ -42,7 +49,7 @@ public class Account {
 
     @EventSourcingHandler
     public void on(AccountCreatedEvent event) {
-        logger.info("received event {}", event);
+        logger.debug("received event {}", event);
         this.accountNumber = event.accountNumber();
         this.accountName = event.accountName();
         this.balance = event.balance();
@@ -50,14 +57,14 @@ public class Account {
 
     @CommandHandler
     public void handle(DepositCommand command) {
-        logger.info("received command {}", command);
+        logger.debug("received command {}", command);
         apply(new DepositedEvent(command.accountName(), command.amount()));
 
     }
 
     @EventSourcingHandler
     public void on(DepositedEvent event) {
-        logger.info("received deposited event {}", event);
+        logger.debug("received deposited event {}", event);
         this.balance += event.amount();
     }
 
@@ -73,6 +80,12 @@ public class Account {
     @EventSourcingHandler
     public void on(WithdrawedEvent command) {
         this.balance -= command.amount();
+    }
+
+
+    @EventSourcingHandler
+    public void on(InsufficientFundsEvent event) {
+        errors.add(event.toString());
     }
 }
 

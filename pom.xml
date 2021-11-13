@@ -11,11 +11,13 @@
     <modules>
         <module>spring-boot-starter-parent</module>
         <module>bank</module>
+        <module>dokuu</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <spring-boot.version>2.5.5</spring-boot.version>
     </properties>
 
 
@@ -40,6 +42,16 @@
                         <artifactId>axon-server-connector</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-spring-boot-starter</artifactId>
+                <version>4.5.4</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.axonframework</groupId>
+                        <artifactId>axon-server-connector</artifactId>
+                    </exclusion></exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

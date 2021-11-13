@@ -1,6 +1,5 @@
 package org.tretton63.bank.projections;
 
-import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.queryhandling.QueryHandler;
 import org.slf4j.Logger;
@@ -10,11 +9,11 @@ import org.tretton63.bank.coreapi.event.AccountCreatedEvent;
 import org.tretton63.bank.coreapi.event.DepositedEvent;
 import org.tretton63.bank.coreapi.event.WithdrawedEvent;
 import org.tretton63.bank.coreapi.query.FindAccountQuery;
+import org.tretton63.bank.dto.AccountDto;
 import org.tretton63.bank.entity.AccountView;
 import org.tretton63.bank.repository.AccountViewRepository;
 
 @Component
-@ProcessingGroup("accountProjector")
 public class AccountProjector {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountProjector.class);
@@ -26,9 +25,9 @@ public class AccountProjector {
 
     @EventSourcingHandler
     public void on(AccountCreatedEvent event) {
-        logger.info("received account created event {}", event);
+        logger.debug("received AccountCreatedEvent {}", event);
         AccountView view = new AccountView(event.accountNumber(), event.accountName(), event.balance());
-        logger.info("view {}", view.getAccountNumber());
+        logger.debug("AccountCreatedEvent view {}", view.getAccountNumber());
         accountViewRepository.save(view);
     }
 
@@ -43,8 +42,14 @@ public class AccountProjector {
     }
 
     @QueryHandler
-    public AccountView handle(FindAccountQuery query) {
-        return accountViewRepository.findById(query.accountNumber()).orElse(null);
+    public AccountDto handle(FindAccountQuery query) {
+        return accountViewRepository
+                .findById(query.accountNumber())
+                .map(view -> new AccountDto(
+                        view.getAccountName(),
+                        view.getAccountNumber(),
+                        view.getBalance())
+                ).orElse(null);
     }
 
 }

@@ -8,7 +8,6 @@ import org.tretton63.feikit.clients.StoreClient;
 import org.tretton63.feikit.model.ComplexExample;
 
 import java.util.List;
-import java.util.UUID;
 
 @Slf4j
 @Component
@@ -24,13 +23,15 @@ public class ExampleRunner {
     @Bean
     public CommandLineRunner exampleCommandRunner() {
         return args -> {
-            List<String> stores = storeClient.getStores(UUID.randomUUID().toString());
+            List<String> stores = storeClient.getStores();
             log.info("requesting stores {}", stores);
             String specificStore = storeClient.getSpecificStore();
             log.info("Not found exception {}", specificStore);
             ComplexExample complexExample = storeClient.getComplexExample();
             log.info("Complex exampled {}", complexExample);
             log.info("Complex example not found {}", storeClient.getComplexExampleNotFound());
+            log.info("Store 4 example with talking to Customers endpoint {}", storeClient.talkToCustomersEndpoint());
+
         };
     }
 }

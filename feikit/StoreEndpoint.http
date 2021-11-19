@@ -1,0 +1,12 @@
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+
+###
+
+GET http://localhost:8080/stores/4
+
+
+###
+GET http://localhost:8080/stores
+requestId: foo

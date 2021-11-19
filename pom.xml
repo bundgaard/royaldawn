@@ -13,6 +13,7 @@
         <module>bank</module>
         <module>dokuu</module>
         <module>dookuu</module>
+        <module>feikit</module>
     </modules>
 
     <properties>

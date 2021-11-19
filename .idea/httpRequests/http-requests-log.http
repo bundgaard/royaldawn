@@ -1,0 +1,111 @@
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T202113.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T202107.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T202050.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T195611.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T195352.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T195316.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T195307.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T195036.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T195028.200.json
+
+###
+
+GET http://localhost:8080/stores
+requestId: foo
+
+<> 2021-11-19T195007.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T194740.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T194715.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T194146.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T194055.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-19T193921.200.json
+
+###
+
+GET http://localhost:8080/stores/4
+
+<> 2021-11-19T193844.200.json
+
+###
+
+GET http://localhost:8080/store/4
+
+<> 2021-11-19T193838.404.json
+
+###
+

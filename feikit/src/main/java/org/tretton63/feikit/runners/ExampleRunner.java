@@ -27,7 +27,7 @@ public class ExampleRunner {
             List<String> stores = storeClient.getStores(UUID.randomUUID().toString());
             log.info("requesting stores {}", stores);
             String specificStore = storeClient.getSpecificStore();
-            log.info("Not found excpetion {}", specificStore);
+            log.info("Not found exception {}", specificStore);
             ComplexExample complexExample = storeClient.getComplexExample();
             log.info("Complex exampled {}", complexExample);
             log.info("Complex example not found {}", storeClient.getComplexExampleNotFound());

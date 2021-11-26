@@ -23,9 +23,11 @@ public class RequestIdFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (request instanceof HttpServletRequest httpRequest &&
-                response instanceof HttpServletResponse httpResponse
+        if (request instanceof HttpServletRequest &&
+                response instanceof HttpServletResponse
         ) {
+            HttpServletRequest httpRequest = (HttpServletRequest) request;
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
             RequestId requestId = getOrCreateRequestId(httpRequest);
             RequestWrapper wrapper = new RequestWrapper(httpRequest);
             wrapper.addHeader(REQUEST_HEADER, requestId.getRequestId());

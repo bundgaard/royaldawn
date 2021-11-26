@@ -1,3 +1,21 @@
+GET http://localhost:8080/stores/3
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-26T145749.404.json
+
+###
+
+GET http://localhost:8080/stores/4
+requestId: FromStoreEndpointHttp
+
+<> 2021-11-26T145734.404.json
+
+###
+
 GET http://localhost:8080/stores/4
 requestId: FromStoreEndpointHttp
 

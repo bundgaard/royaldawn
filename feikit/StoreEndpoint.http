@@ -6,6 +6,9 @@ requestId: FromStoreEndpointHttp
 
 GET http://localhost:8080/stores/4
 
+### NOT FOUND ON COMPLEX EXAMPLE
+
+GET http://localhost:8080/stores/3
 
 ###
 GET http://localhost:8080/stores
